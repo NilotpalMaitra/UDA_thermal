@@ -175,7 +175,7 @@ class CNNModel(nn.Module):
         # Print the shape of the tensor before view operation
         print("Shape before view:", feature.shape)
         
-        feature = feature.view(feature.size(0), -1)  # Flatten the tensor appropriately
+        feature = feature.view(-1, 128 * 6 * 6)  # Flatten the tensor appropriately
         reverse_feature = ReverseLayerF.apply(feature, alpha)
         class_output = self.class_classifier(feature)
         domain_output = self.domain_classifier(reverse_feature)
