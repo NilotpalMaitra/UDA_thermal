@@ -184,7 +184,7 @@ class CNNModel(nn.Module):
         feature = self.max3(feature)
         
 
-        feature = feature.view(-1, 256) #256 for digit
+        feature = feature.view(-1, 256*4*4) #256 for digit
         reverse_feature = ReverseLayerF.apply(feature, 1.0)
         class_output = self.class_classifier(feature)
         domain_output = self.domain_classifier(reverse_feature)
