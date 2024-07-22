@@ -18,7 +18,7 @@ device_gpu=0
 def test_(dataset_name, epoch):
     assert dataset_name in ['source', 'target']
 
-    model_root = os.path.join('/raid/ai21resch11003/DA_HG/', 'models')
+    model_root = os.path.join("/kaggle/working/UDA_thermal/UDA_thermal", 'models')
    
 
     cuda = True
@@ -28,10 +28,10 @@ def test_(dataset_name, epoch):
     alpha = 0
     # Digits and Alpha
     #'''
-    img_rgb_resized = np.load("/raid/ai21resch11003/DA_HG/comb_data/X_rgb_224.npy")
-    labels_rgb = np.load("/raid/ai21resch11003/DA_HG/comb_data/Y_rgb_224.npy")
-    img_th_rot = np.load("/raid/ai21resch11003/DA_HG/comb_data/X_th_224-002.npy")
-    labels_th = np.load("/raid/ai21resch11003/DA_HG/comb_data/Y_th_224.npy")
+    img_rgb_resized = np.load("/kaggle/input/dataset/X_rgb_224.npy")
+    labels_rgb = np.load("/kaggle/input/dataset/Y_rgb_224.npy")
+    img_th_rot = np.load("/kaggle/input/dataset/X_th_224-001.npy")
+    labels_th = np.load("/kaggle/input/dataset/Y_th_224.npy")
 
 
     img_rgb_train, img_rgb_test, labels_rgb_train, labels_rgb_test = train_test_split(img_rgb_resized, labels_rgb, test_size=0.1, random_state=42,stratify=labels_rgb)
